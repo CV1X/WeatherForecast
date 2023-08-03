@@ -9,7 +9,7 @@ Widget bottomView(AsyncSnapshot<WFModel> snapshot, BuildContext context) {
   return Column(
     mainAxisAlignment: MainAxisAlignment.start,
     children: <Widget>[
-      Text("7-Day Weather forecast".toUpperCase(),
+      Text("5-Day Weather forecast".toUpperCase(),
           style: TextStyle(fontSize: 15, color: Colors.grey)),
       Container(
         height: 170,
@@ -19,7 +19,7 @@ Widget bottomView(AsyncSnapshot<WFModel> snapshot, BuildContext context) {
           separatorBuilder: ((context, index) => SizedBox(
                 width: 8,
               )),
-          itemCount: 20,
+          itemCount: 5,
           itemBuilder: ((context, index) => ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(10)),
               child: Container(

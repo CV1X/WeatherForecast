@@ -240,7 +240,7 @@ class Rain {
   Rain({this.d3h});
 
   Rain.fromJson(Map<String, dynamic> json) {
-    d3h = json['3h'];
+    d3h = json['3h'].toDouble();
   }
 
   Map<String, dynamic> toJson() {
