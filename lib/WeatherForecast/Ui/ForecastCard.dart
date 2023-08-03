@@ -7,25 +7,37 @@ import '../Util/WFUtil.dart';
 
 Widget forecastCard(AsyncSnapshot<WFModel> snapshot, int index) {
   var forecastList = snapshot.data?.list;
+  List<int> dtValues = [];
+  List<String> dayOfWeekList = [];
 
-  var forecastData = forecastList?[index];
+  for (int index = 0; index < forecastList!.length; index += 8) {
+    var forecastData = forecastList[index];
+    int dt = forecastData!.dt!;
+    dtValues.add(dt);
+  }
 
-  var dayOfWeek = Util.getFormattedDate(
-    DateTime.fromMillisecondsSinceEpoch((forecastData?.dt ?? 0) * 1000),
-  ).split(",")[0];
+  for (int dt in dtValues) {
+    String dayOfWeek = Util.getFormattedDate(
+      DateTime.fromMillisecondsSinceEpoch(dt * 1000),
+    ).split(",")[0];
+    dayOfWeekList.add(dayOfWeek);
+  }
+
+  print(dayOfWeekList);
 
   return Column(
     mainAxisAlignment: MainAxisAlignment.start,
     crossAxisAlignment: CrossAxisAlignment.start,
     children: <Widget>[
       Center(
-          child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Text(
-          dayOfWeek,
-          style: TextStyle(color: Colors.black),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            dayOfWeekList[index % 5],
+            style: TextStyle(color: Colors.black),
+          ),
         ),
-      )),
+      ),
       Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
