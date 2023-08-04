@@ -1,8 +1,7 @@
 import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
-import 'package:flutter_1/Login%20Form/Features/util/validators.dart';
 import 'package:flutter_1/Login%20Form/Repository/user_repo.dart';
 
+import '../../util/validators.dart';
 import 'login_event.dart';
 
 part 'login_state.dart';
